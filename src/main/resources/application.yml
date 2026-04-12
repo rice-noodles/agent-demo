@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    root: debug
+
+langchain4j:
+  open-ai:
+    chat-model:
+      base-url: http://langchain4j.dev/demo/openai/v1
+      api-key: demo
+      model-name: gpt-4o-mini
+      # 请求日志和响应日志
+      log-requests: true
+      log-responses: true
+#  ollama:
+#    chat-model:
+#      base-url: http://localhost:11434
+#      model-name: qwen3.5:0.8b
+#      # 返回信息的多样性
+#      temperature: 0.8
+#      timeout: PT60S
