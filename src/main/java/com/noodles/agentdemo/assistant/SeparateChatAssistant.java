@@ -1,0 +1,27 @@
+package com.noodles.agentdemo.assistant;
+
+import dev.langchain4j.service.MemoryId;
+import dev.langchain4j.service.UserMessage;
+import dev.langchain4j.service.spring.AiService;
+import dev.langchain4j.service.spring.AiServiceWiringMode;
+
+/**
+ * @author Noodles
+ * @date 2026/4/13 23:17
+ */
+@AiService(
+        wiringMode = AiServiceWiringMode.EXPLICIT,
+        chatMemoryProvider = "chatMemoryProvider"
+)
+public interface SeparateChatAssistant {
+
+    /**
+     * 用户隔离的聊天
+     *
+     * @param memoryId    聊天记忆 ID
+     * @param userMessage 用户输入信息
+     * @return 模型响应信息
+     */
+    String chat(@MemoryId Long memoryId, @UserMessage String userMessage);
+
+}
