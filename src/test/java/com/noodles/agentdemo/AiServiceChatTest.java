@@ -1,6 +1,8 @@
 package com.noodles.agentdemo;
 
 import com.noodles.agentdemo.assistant.MemoryChatAssistant;
+import com.noodles.agentdemo.assistant.SeparateChatAssistant;
+import dev.langchain4j.data.message.UserMessage;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,12 +18,27 @@ public class AiServiceChatTest {
     private MemoryChatAssistant memoryChatAssistant;
 
     @Test
-    public void chatMemeryAssistantTest() {
+    public void chatMemoryAssistantTest() {
         String response1 = memoryChatAssistant.chat("你好，我是小龙虾。");
         System.out.println("Response 1: " + response1);
 
         String response2 = memoryChatAssistant.chat("我是谁？");
         System.out.println("Response 2: " + response2);
+    }
+
+
+    @Autowired
+    private SeparateChatAssistant separateChatAssistant;
+
+    @Test
+    public void separateChatMemoryAssistantTest() {
+        String response1 = separateChatAssistant.chat(1L, "你好，我是小龙虾");
+        System.out.println("Response 1: " + response1);
+        String response2 = separateChatAssistant.chat(1L, "我是谁？");
+        System.out.println("Response 2: " + response2);
+
+        String response3 = separateChatAssistant.chat(2L, "我是谁？");
+        System.out.println("Response 3: " + response3);
     }
 
 }
