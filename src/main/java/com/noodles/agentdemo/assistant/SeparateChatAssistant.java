@@ -20,6 +20,6 @@ public interface SeparateChatAssistant {
      * @param userMessage 用户输入信息
      * @return 模型响应信息
      */
-    String chat(@MemoryId Long memoryId, @UserMessage String userMessage);
+    String chat(@MemoryId String memoryId, @UserMessage String userMessage);
 
 }

@@ -1,8 +1,10 @@
 package com.noodles.agentdemo.config;
 
+import com.noodles.agentdemo.store.RedisChatMemoryStore;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.ChatMemoryProvider;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,6 +14,9 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class ChatConfig {
+
+    @Autowired
+    private RedisChatMemoryStore redisChatMemoryStore;
 
     @Bean
     public ChatMemory chatMemory() {
@@ -23,6 +28,7 @@ public class ChatConfig {
         return memoryId -> MessageWindowChatMemory
                 .builder()
                 .id(memoryId)
+                .chatMemoryStore(redisChatMemoryStore)
                 .maxMessages(10)
                 .build();
     }
