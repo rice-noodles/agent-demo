@@ -33,11 +33,9 @@ public class AiServiceChatTest {
     public void separateChatMemoryAssistantTest() {
         String response1 = separateChatAssistant.chat("TEST_MEMORY_ID", "你好，我是小龙虾");
         System.out.println("Response 1: " + response1);
-        String response2 = separateChatAssistant.chat("TEST_MEMORY_ID", "我是谁？");
-        System.out.println("Response 2: " + response2);
 
-        //String response3 = separateChatAssistant.chat(2L, "我是谁？");
-        // System.out.println("Response 3: " + response3);
+        String response2 = separateChatAssistant.chat("TEST_MEMORY_ID", "猜猜我是谁？");
+        System.out.println("Response 2: " + response2);
     }
 
 }

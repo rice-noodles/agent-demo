@@ -1,6 +1,7 @@
 package com.noodles.agentdemo.assistant;
 
 import dev.langchain4j.service.MemoryId;
+import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;
 import dev.langchain4j.service.spring.AiService;
 
@@ -20,6 +21,7 @@ public interface SeparateChatAssistant {
      * @param userMessage 用户输入信息
      * @return 模型响应信息
      */
+    @SystemMessage(fromResource = "prompt/system-message-test.txt")
     String chat(@MemoryId String memoryId, @UserMessage String userMessage);
 
 }
