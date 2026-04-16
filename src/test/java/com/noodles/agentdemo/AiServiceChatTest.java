@@ -31,11 +31,14 @@ public class AiServiceChatTest {
 
     @Test
     public void separateChatMemoryAssistantTest() {
-        String response1 = separateChatAssistant.chat("TEST_MEMORY_ID", "你好，我是小龙虾");
+        String response1 = separateChatAssistant.chat("TEST_MEMORY_ID", "你好，我是小龙虾", 18);
         System.out.println("Response 1: " + response1);
 
-        String response2 = separateChatAssistant.chat("TEST_MEMORY_ID", "猜猜我是谁？");
+        String response2 = separateChatAssistant.chat("TEST_MEMORY_ID", "猜猜我是谁？", 18);
         System.out.println("Response 2: " + response2);
+
+        String response3 = separateChatAssistant.chat("TEST_MEMORY_ID", "猜猜我今年多大啦？", 18);
+        System.out.println("Response 3: " + response3);
     }
 
 }

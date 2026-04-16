@@ -1,5 +1,7 @@
 package com.noodles.agentdemo.assistant;
 
+import dev.langchain4j.service.UserMessage;
+import dev.langchain4j.service.V;
 import dev.langchain4j.service.spring.AiService;
 
 /**
@@ -18,6 +20,7 @@ public interface MemoryChatAssistant {
      * @param message 用户输入的信息
      * @return 大模型的输出结果
      */
-    String chat(String message);
+    @UserMessage("你比较调皮，你喜欢在回答的问题中添加一些表情符号。{{message}}")
+    String chat(@V("message") String message);
 
 }
